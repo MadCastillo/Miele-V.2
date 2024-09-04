@@ -13,5 +13,5 @@ FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build-step /app/dist /usr/share/nginx/html
-RUN sudo chmod -R 755 /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
